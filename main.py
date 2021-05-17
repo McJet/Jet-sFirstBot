@@ -4,7 +4,7 @@ import requests
 import json
 import random
 from replit import db
-
+import keepAlive
 
 # gets a quote from zen quotes api - https://zenquotes.io/
 def get_quote():
@@ -79,4 +79,5 @@ async def on_message(message): # triggers every time a message is recieved
             encouragements = db["encouragements"]
         await message.channel.send(encouragements)
 
+keepAlive.keepAlive()
 client.run(os.environ['TOKEN'])  # runs the bot
